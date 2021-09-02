@@ -1,45 +1,27 @@
 <template>
   <div>
-    <h1>Create an event</h1>
-     <form @submit.prevent="saveEvent">
-      <label>Category</label>
+    <h1>Create an Organizer</h1>
+     <form @submit.prevent="saveOrganizer">
+      <label>Name</label>
       <input
-        v-model="event.category"
+        v-model="organizer.name"
         type="text"
-        placeholder="Category"
-        class="field"
-      />
-      <h3>Name & describe your event</h3>
-
-      <label>Title</label>
-      <input
-        v-model="event.title"
-        type="text"
-        placeholder="Title"
+        placeholder="Name"
         class="field"
       />
 
-      <label>Description</label>
+      <label>Address</label>
       <input
-        v-model="event.description"
+        v-model="organizer.address"
         type="text"
-        placeholder="Description"
+        placeholder="address"
         class="field"
       />
 
-      <h3>Where is your event?</h3>
-
-      <label>Location</label>
-      <input
-        v-model="event.location"
-        type="text"
-        placeholder="Location"
-        class="field"
-      />
       <button type="submit">Submit</button>
     </form>
 
-    <pre>{{ event }}</pre>
+    <pre>{{ organizer }}</pre>
   </div>
 </template>
 <script>
@@ -48,17 +30,15 @@ export default {
 inject: ['GStore'],
   data() {
     return {
-      event: {
-        category: '',
-        title: '',
-        description: '',
-        location: ''
+      organizer: {
+        name: '',
+        address: '',
       }
     }
   },
  methods: {
-    saveEvent() {
-      EventService.saveEvent(this.event)
+    saveOrganizer() {
+      EventService.saveOrganizer(this.organizer)
         .then((response) => {
           console.log(response)
           this.$router.push({
