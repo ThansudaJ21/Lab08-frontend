@@ -10,6 +10,8 @@ import NetWorkError from '@/views/NetworkError.vue'
 import NProgress from 'nprogress'
 import EventService from '@/services/EventService.js'
 import GStore from '@/store'
+import AddEvent from '@/views/EventForm.vue'
+
 const routes = [
   {
     path: '/',
@@ -22,6 +24,12 @@ const routes = [
     name: 'About',
     component: About
   },
+  {
+        path: '/add-event',
+        name: 'AddEvent',
+        component: AddEvent
+      },
+    
   {
     path: '/event/:id',
     name: 'EventLayout',
